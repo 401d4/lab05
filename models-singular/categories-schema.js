@@ -1,12 +1,10 @@
 'use strict';
 
-const mongoose = require('mongoose');
+var mongoose = require('mongoose'); //BRING IN MONGOOSE
 
-// What fields and constraints do we want?
-const categories = mongoose.Schema({
-
+const categories = mongoose.Schema({ //HAVE MONGOOSE CREATE A SCHEMA
+  name: String,
+  description: String,
 });
 
-// Do we need to run any lifecycle hooks/middleware?
-
-module.exports = mongoose.model('categories ', categories);
+module.exports = mongoose.model('categories', categories); //EXPORT THE SCHEMA AS PART OF A MODEL

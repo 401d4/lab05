@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const MONGOOSE_URI = 'mongodb://localhost:27017/class05';
 
 // Connect
-mongoose.connect(...);
+mongoose.connect();
 
 // Do some work
 
