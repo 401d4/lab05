@@ -1,33 +1,31 @@
 'use strict';
 
-// Where is our schema defined?
-// How do we get it in here so we can run methods on it?
+const Category = require('./categories-schema'); //PULL IN MODEL
 
 class Categories {
 
-  constructor() {
+  //CREATE
+  create(object) {
+    let newCategory = new Category(object);
+    return newCategory.save();
   }
-
-  get(_id) {
-    // Call the appropriate mongoose method to get
-    // one or more records
-    // If 1, return it as a plain object
-    // If 2, return it as an object like this:
-    // { count: ##, results: [{}, {}] }
+  //READ
+  get(id) {
+    if (id) {
+      return Category.findOne({ _id: id });
+    }
+    else {
+      return Category.find({ });
+    }
   }
-
-  create(record) {
-    // Call the appropriate mongoose method to create a new record
+  //UPDATE
+  update(id, change) {
+    return Category.findByIdAndUpdate(id, changes, { new: true });
   }
-
-  update(_id, record) {
-    // Call the appropriate mongoose method to update a record
+  //DELETE
+  delete(id) {
+    return Category.deleteOne({ _id: id });
   }
-
-  delete(_id) {
-    // Call the appropriate mongoose method to delete a record
-  }
-
-}
+};
 
 module.exports = Categories;
